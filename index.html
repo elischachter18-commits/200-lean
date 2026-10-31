@@ -254,8 +254,8 @@ img { max-width: 100%; }
 .wrap { padding-top: calc(18px + env(safe-area-inset-top, 0px)); }
 .hero { margin-top: calc(-18px - env(safe-area-inset-top, 0px)); height: calc(400px + env(safe-area-inset-top, 0px)); }
 .hero.compact { height: calc(200px + env(safe-area-inset-top, 0px)); }
-body::before { opacity: 0; transition: opacity .2s; }
-body.scrolled::before { opacity: 1; }
+/* no status-bar band: the page stays edge to edge while scrolling */
+body::before { display: none; }
 .auth { display: flex; flex-direction: column; gap: 12px; }
 .auth .row2 { display: flex; gap: 10px; flex-wrap: wrap; }
 .auth .row2 .btn { flex: 1; }
@@ -1462,8 +1462,6 @@ body.scrolled::before { opacity: 1; }
   document.addEventListener("keydown", (e) => {
     if (e.key === "Enter" && (e.target.id === "auth-email" || e.target.id === "auth-pass")) doAuth("in");
   });
-  // the status-bar band only appears once you scroll, so the sky reaches the top edge
-  window.addEventListener("scroll", () => document.body.classList.toggle("scrolled", window.scrollY > 40), { passive: true });
   if ("serviceWorker" in navigator && location.protocol === "https:") navigator.serviceWorker.register("sw.js").catch(() => {});
 
   connect();
