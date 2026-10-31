@@ -823,7 +823,8 @@ body::before { display: none; }
     </div>`;
   }
   const castleIcon = `<svg class="castle-ico" viewBox="0 0 44 34" aria-hidden="true"><path d="M4 34V20h4v3h3v-9l2-5 2 5v9h3V8l4-8 4 8v15h3v-9l2-5 2 5v9h3v-3h4v14z" fill="#0a0505" stroke="#c9a24a" stroke-opacity=".6" stroke-width="1"/></svg>`;
-  const syncPill = () => synced ? `<span class="pill good">Synced</span>` : `<span class="pill warn">This device only</span>`;
+  // only speak up when sync isn't working
+  const syncPill = () => synced ? "" : `<span class="pill warn">This device only</span>`;
 
   // ---- charts ----
   function lineChart(points, { goal = null, fmt = (v) => +v.toFixed(1), label = "Chart" } = {}) {

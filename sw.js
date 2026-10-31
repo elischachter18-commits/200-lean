@@ -1,6 +1,6 @@
 // Keeps 200 Lean opening with no signal: serves the app shell from cache, refreshes it in the background.
 // Sync traffic (Firestore, sign-in) is never cached; Firebase queues those writes itself while offline.
-const CACHE = "lean200-v2";
+const CACHE = "lean200-v3";
 const SHELL = ["./", "./index.html", "./manifest.webmanifest", "./firebase-config.js", "./icon-192.png", "./icon-512.png", "./apple-touch-icon.png"];
 
 self.addEventListener("install", (e) => {
